@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+    <title>Electricity Price Prediction</title>
+  </head>
+  <body>
+    <!-- Attractive Two-Column Layout with Gradient Background -->
+    <div class="main-container">
+      <!-- Left-side Main Heading -->
+      <div class="left-side">
+        <h1>Electricity Price Prediction</h1>
+      </div>
+
+      <!-- Right-side Form Container -->
+      <div class="right-side">
+        <form action="/predict" method="post">
+          <div class="form-grid">
+            <div class="form-column">
+              <label for="day">Day:</label>
+              <input
+                type="number"
+                step="any"
+                name="day"
+                value="{{ request.form.get('day', '') }}"
+                required
+              />
+
+              <label for="month">Month:</label>
+              <input
+                type="number"
+                step="any"
+                name="month"
+                value="{{ request.form.get('month', '') }}"
+                required
+              />
+
+              <label for="forecast_wind">Forecast Wind Production:</label>
+              <input
+                type="number"
+                step="any"
+                name="forecast_wind"
+                value="{{ request.form.get('forecast_wind', '') }}"
+                required
+              />
+
+              <label for="system_load">System Load EA:</label>
+              <input
+                type="number"
+                step="any"
+                name="system_load"
+                value="{{ request.form.get('system_load', '') }}"
+                required
+              />
+
+              <label for="smpea">SMPEA:</label>
+              <input
+                type="number"
+                step="any"
+                name="smpea"
+                value="{{ request.form.get('smpea', '') }}"
+                required
+              />
+            </div>
+
+            <div class="form-column">
+              <label for="ork_temp">ORK Temperature:</label>
+              <input
+                type="number"
+                step="any"
+                name="ork_temp"
+                value="{{ request.form.get('ork_temp', '') }}"
+                required
+              />
+
+              <label for="ork_wind">ORK Windspeed:</label>
+              <input
+                type="number"
+                step="any"
+                name="ork_wind"
+                value="{{ request.form.get('ork_wind', '') }}"
+                required
+              />
+
+              <label for="co2_intensity">CO2 Intensity:</label>
+              <input
+                type="number"
+                step="any"
+                name="co2_intensity"
+                value="{{ request.form.get('co2_intensity', '') }}"
+                required
+              />
+
+              <label for="actual_wind">Actual Wind Production:</label>
+              <input
+                type="number"
+                step="any"
+                name="actual_wind"
+                value="{{ request.form.get('actual_wind', '') }}"
+                required
+              />
+
+              <label for="system_load_ep2">System Load EP2:</label>
+              <input
+                type="number"
+                step="any"
+                name="system_load_ep2"
+                value="{{ request.form.get('system_load_ep2', '') }}"
+                required
+              />
+            </div>
+          </div>
+
+          <button type="submit">Predict</button>
+        </form>
+
+        <!-- Error Message Block -->
+        {% if error %}
+        <div class="error-message">
+          <p>{{ error }}</p>
+        </div>
+        {% endif %}
+
+        <!-- Prediction Result Block -->
+        {% if prediction %}
+        <h2>Predicted Electricity Price: {{ prediction }}</h2>
+        {% endif %}
+      </div>
+    </div>
+  </body>
+</html>

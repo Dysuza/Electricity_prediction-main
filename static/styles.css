@@ -1,0 +1,146 @@
+/* General styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Body styling with a dark gradient background */
+body {
+  background: linear-gradient(to right, #0c0d13, #1e1e2d); /* Dark gradient with shades of black and deep blue */
+  color: #e0e0e0; /* Light text color for readability */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Two-column layout for main heading and form */
+.main-container {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  max-width: 1200px;
+  height: auto;
+  margin: 20px;
+}
+
+/* Left-side Main Heading Styling */
+.left-side {
+  background-color: rgba(30, 30, 45, 0.9); /* Semi-transparent dark background */
+  width: 40%;
+  padding: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 4px 0 12px rgba(0, 0, 0, 0.4); /* Dark shadow */
+}
+
+.left-side h1 {
+  color: #ffffff; /* White heading text */
+  font-size: 3rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Right-side container styling for form */
+.right-side {
+  background-color: rgba(30, 30, 45, 0.95); /* Dark background for form area */
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Dark shadow */
+  width: 55%;
+}
+
+/* Two-column form grid */
+.form-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+/* Form columns styling */
+.form-column {
+  display: flex;
+  flex-direction: column;
+  width: 48%;
+}
+
+/* Form labels */
+form label {
+  font-size: 1rem;
+  color: #e0e0e0; /* Light label text for contrast */
+  margin-bottom: 5px;
+}
+
+/* Input fields */
+form input {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #4a4a6b; /* Dark border */
+  background-color: #2e2e40; /* Darker input field background */
+  color: #ffffff; /* White input text */
+  font-size: 1rem;
+  margin-bottom: 15px;
+}
+
+/* Input focus style */
+form input:focus {
+  border-color: #6a8eff; /* Light blue border on focus */
+  outline: none;
+  box-shadow: 0 0 8px rgba(106, 142, 255, 0.5); /* Subtle focus glow */
+}
+
+/* Button styling */
+button[type="submit"] {
+  background-color: #6a8eff; /* Light blue button */
+  border: none;
+  color: #ffffff;
+  padding: 12px;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+}
+
+button[type="submit"]:hover {
+  background-color: #869eff; /* Lighter blue hover effect */
+}
+
+/* Responsive design */
+@media screen and (max-width: 768px) {
+  .main-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .left-side {
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .right-side {
+    width: 100%;
+  }
+
+  .form-grid {
+    flex-direction: column;
+  }
+
+  .form-column {
+    width: 100%;
+  }
+}
+
+/* Displaying prediction */
+h2 {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 1.5rem;
+  color: #6a8eff; /* Light blue for prediction result */
+}
